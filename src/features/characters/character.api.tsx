@@ -13,7 +13,9 @@ export const getCharacters = async (page: number, name: string): Promise<Charact
     
     characters.forEach((char) => {
       if (char.episode.length > 0) {
-        
+        const firstEpisodeUrl = char.episode[0]
+        const id = firstEpisodeUrl.split("/").pop()
+        if (id) episodeIds.add(id)
       }
     })
 
